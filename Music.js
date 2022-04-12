@@ -1,5 +1,5 @@
 // LOAD DATA
-d3.csv('../data/Music.csv').then( function(data) {
+d3.csv('./data/Music.csv').then( function(data) {
 
 // SCALE
 xScale = d3.scaleLinear()

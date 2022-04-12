@@ -46,7 +46,7 @@ const Race_2 = d3.select("#Race_2")
         .attr("transform",`translate(${margin.left*120},${margin.top})`)
 
 // LOAD DATA
-d3.csv('../data/Bexar_1950_1960_Race.csv').then( function(data) {
+d3.csv('./data/Bexar_1950_1960_Race.csv').then( function(data) {
 
 const subgroups = data.columns.slice(1)
 

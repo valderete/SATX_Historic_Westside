@@ -1,5 +1,5 @@
 // LOAD DATA
-d3.csv('../data/Bexar_1970_Foreign_Born.csv', d3.autoType)
+d3.csv('./data/Bexar_1970_Foreign_Born.csv', d3.autoType)
 .then(data => {
   console.log("Foreign data loaded", data)
 

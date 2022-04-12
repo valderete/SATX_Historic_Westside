@@ -1,5 +1,5 @@
 // LOAD DATA
-d3.csv('../data/Timeline.csv').then( function(data) {
+d3.csv('./data/Timeline.csv').then( function(data) {
 
 // SCALE
 timelineScale = d3.scaleLinear()

@@ -1,0 +1,78 @@
+{
+  "_from": "scrollama",
+  "_id": "scrollama@3.1.1",
+  "_inBundle": false,
+  "_integrity": "sha512-LYm58kGb4nkBjMFdt4dAX3utfWKa48nQmBK0fds2tFyvR28l2MC3FPnuXUnU6qqy2Ovs3YkUfCZ6ZetnIkPkLw==",
+  "_location": "/scrollama",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "scrollama",
+    "name": "scrollama",
+    "escapedName": "scrollama",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/scrollama/-/scrollama-3.1.1.tgz",
+  "_shasum": "0427c4d28c600bc62f467b252c00b5284ff815ab",
+  "_spec": "scrollama",
+  "_where": "/Users/valeriaalderete",
+  "author": {
+    "name": "Russell Goldenberg",
+    "url": "@russellgoldenberg"
+  },
+  "browser": "build/scrollama.js",
+  "bugs": {
+    "url": "https://github.com/russellgoldenberg/scrollama/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Lightweight scrollytelling library using IntersectionObserver",
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "rollup": "^1.32.1",
+    "rollup-plugin-buble": "^0.19.8",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-filesize": "^9.1.1",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-uglify": "^6.0.4"
+  },
+  "homepage": "https://github.com/russellgoldenberg/scrollama#readme",
+  "jsnext:main": "index",
+  "keywords": [
+    "scrollytelling",
+    "scroll",
+    "scroll-driven",
+    "step",
+    "interactive",
+    "graphic",
+    "observer",
+    "IntersectionObserver",
+    "enter",
+    "exit",
+    "view",
+    "trigger"
+  ],
+  "license": "MIT",
+  "main": "build/scrollama.js",
+  "module": "index",
+  "name": "scrollama",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/russellgoldenberg/scrollama.git"
+  },
+  "scripts": {
+    "build": "npm run pretest && cross-env NODE_ENV=production rollup -c && npm run docs",
+    "dev": "cross-env NODE_ENV=development rollup -w -c",
+    "docs": "cp build/scrollama.min.js docs",
+    "pretest": "cross-env NODE_ENV=development rollup -c"
+  },
+  "types": "index.d.ts",
+  "version": "3.1.1"
+}
