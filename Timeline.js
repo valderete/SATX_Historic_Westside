@@ -96,7 +96,7 @@ Timeline.append("g")
             .style("visibility","visible")
 
         d3.select(this)
-        timeline_tooltip.html("<span style='color:black;'><h3>"+d.Year+"</h3><span style='color:black;'><h2>"+d.Event+"</h2><img src="+d.Media+" style='max-width:70%;height:auto; ></ahref></span><span style='color:black'><p>"+d.Description+"</p></span>" )                            
+        timeline_tooltip.html("<span style='color:black;'><h3>"+d.Year+"</h3><span style='color:black;'><h2>"+d.Event+"</h2><img src="+d.Media+" style='max-width:65%;height:auto; ></ahref></span><span style='color:black'><p>"+d.Description+"</p></span>" )                            
             .style("left",(event.x)+10+"px")
             .style("top",(event.y)-20+"px")
             
