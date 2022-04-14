@@ -71,11 +71,25 @@ Music_viz.append("g")
     .attr("cx", d => xScale(d.X)*3)
     .attr("r", 95)
     .attr("stroke", "#3c7bcc")
-    .attr("stroke-width",1)
+    .attr("stroke-width",2)
     .style("fill", "#d67369")
 
-    // ADD INTERACTIVITY
-.on("click", (event, d) => {        
+// ADD INTERACTIVITY
+.on("mouseover", function (event,d){
+  d3.select(this).attr("stroke-width", 5)
+    Music_viz.transition()
+    .duration(200)
+})
+.on("mouseout",function (event,d){
+    d3.select(this).attr("stroke-width",2)
+})
+
+// Why isn't this working???
+.on("click",function (event,d){
+    d3.select(this).attr("opacity",0.8)
+})
+
+.on("click", (event, d) => {    
     d3.select("#Music_tooltip")
     .data(data)
         .attr('class', 'music_tooltip')
@@ -92,6 +106,8 @@ Music_viz.append("g")
         .html('<p>' +d.Video+ '</p>')
         })
 
+
+        
 // ADD TITLES
 Titles = Music_viz.append("g")
     .attr("transform",`translate(${width*0.2}, ${height*0.23})`)    

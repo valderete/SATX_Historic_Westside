@@ -49,7 +49,7 @@ div{
       display: grid;
       grid-gap: px; /* eventually remove to get rid of grid borders */
       grid-template-columns:  [col1-start] auto [col2-start] auto  [col3-start] auto  [col4-start] auto  [col4-end];
-      grid-template-rows: [row0-start] auto [row1-start] auto [row2-start] auto [row3-start] auto [row4-start] auto [row5-start] auto [row6-start] auto [row7-start] auto [row8-start] auto [row9-start] auto [row9-end];
+      grid-template-rows: [row0-start] auto [row1-start] auto [row2-start] auto [row3-start] auto [row4-start] auto [row5-start] auto [row6-start] auto [row7-start] auto [row8-start] auto [row9-start] auto [row10-start] auto [row10-end];
       background-color: rgb(0, 0, 0);
       color: rgb(252, 252, 252);
       padding: px; /* eventually remove to get rid of grid borders */
@@ -101,7 +101,7 @@ div{
       line-height: 25px;
       text-align:left;
       color: black;
-      padding-top: 16%;
+      padding-top: 20%;
       padding-left: 7%;
       max-width: 29%;
       z-index: 20; /* to indicate layer placement */
@@ -220,5 +220,16 @@ div{
       padding-top: 0%;
       padding-right: 7%;
       padding-left: 7%;
-      padding-bottom: 0%;
+      padding-bottom: 3%;
+    }
+
+    .l {
+      background-color: rgb(100,119,185);
+      grid-column: col1-start / col4-end;
+      grid-row: row10-start ;
+      color: black;
+      padding-top: 0%;
+      padding-right: 7%;
+      padding-left: 7%;
+      padding-bottom: 1%;
     }
