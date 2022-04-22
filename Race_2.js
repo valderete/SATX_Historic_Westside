@@ -72,6 +72,23 @@ const xSubgroup = d3.scaleBand()
 xAxis = d3.axisBottom(xScale)
 yAxis = d3.axisLeft(yScale)
 
+
+// create a tooltip
+const Race_tooltip = d3.select("#Race_2_tooltip")
+    .append("div")
+    .style("position", "absolute")
+    .style("visibility", "hidden")
+    .style("background-color", "#49b8c5")
+    .style("border", "solid")
+    .style("border-color", "black")
+    .style("border-width", "3px")
+    .style("border-radius", "5px")
+    .style("padding-left", "5px")
+    .style("padding-right", "5px")
+    .style("padding-top", "0px")
+    .style("padding-bottom", "0px")
+
+
 // DRAW AXES
 Race_2.append("g")
     .attr("transform", "translate(0," + height + ")") // move to bottom
@@ -110,7 +127,31 @@ Race_2.append("g")
       .attr("y", d => yScale(d.value))
       .attr("width", xSubgroup.bandwidth())
       .attr("height", d => height - yScale(d.value))
-      .attr("fill", d => color(d.key)) //;
+      .attr("fill", d => color(d.key))
+      .attr("stroke", "#49b8c5")
+      .attr("stroke-width", 0) //;
+
+    
+     // INTERACTIVITY FOR TOOLTIP
+     .on("mouseover", function (event,d){
+        d3.select(this).attr("stroke-width", 4)
+            Race_tooltip.transition()
+                .duration(200)
+                .style("visibility","visible")
+    
+            d3.select(this)
+            Race_tooltip.html("<span style='color:black;'><p> Count: " + d.value + "</p></span>" )                            
+                .style("left",(event.pageX)+20+"px")
+                .style("top",(event.pageY)-50+"px")
+                
+        })
+    
+        .on("mouseout",function (event,d){
+            d3.select(this).attr("stroke-width",0)
+            Race_tooltip.transition().style("visibility","hidden") 
+        }  )
+
+
 
 // CREATE LABEL 1(annotation)
 

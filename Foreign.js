@@ -21,6 +21,23 @@ const Foreign_Chart = d3.select("#Foreign_Chart")
   .attr("height", height*0.65)
   .attr("transform",`translate(${margin.left-50},${margin.top})`)
 
+
+// create a tooltip
+const Foreign_tooltip = d3.select("#Foreign_tooltip")
+    .append("div")
+    .style("position", "absolute")
+    .style("visibility", "hidden")
+    .style("background-color", "#f3ecda")
+    .style("border", "solid")
+    .style("border-color", "black")
+    .style("border-width", "3px")
+    .style("border-radius", "5px")
+    .style("padding-left", "5px")
+    .style("padding-right", "5px")
+    .style("padding-top", "0px")
+    .style("padding-bottom", "0px")
+
+
 // + DRAW AXES
 Foreign_Chart.append("g")
   .attr("class", "xAxis2")
@@ -55,5 +72,26 @@ Foreign_Chart.selectAll("rect")
     .attr("width", d => xScale2(d.Count))
     .attr("height", yScale2.bandwidth())
     .attr("fill", "#ebbf0e")
+    .attr("stroke", "red")
+    .attr("stroke-width", 0)
+
+    // INTERACTIVITY FOR TOOLTIP
+    .on("mouseover", function (event,d){
+      d3.select(this).attr("stroke-width", 2)
+          Foreign_tooltip.transition()
+              .duration(200)
+              .style("visibility","visible")
+  
+          d3.select(this)
+          Foreign_tooltip.html("<span style='color:black;'><p> Count: " +d.Count+ "</p></span>" )                            
+              .style("left",(event.pageX)+20+"px")
+              .style("top",(event.pageY)-50+"px")
+              
+      })
+  
+      .on("mouseout",function (event,d){
+          d3.select(this).attr("stroke-width",0)
+          Foreign_tooltip.transition().style("visibility","hidden") 
+      }  )
 
     })
