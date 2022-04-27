@@ -1,6 +1,0 @@
-# El Ritmo del Westside
-Throughout the 1950s and 1960s, San Antonio’s historic westside fostered a unique musical landscape for the working-class community of mostly Mexicans and Chicanos that resided there. A predominantly low-income, Hispanic area shaped the musical trajectories of such talents as, The Royal Jesters, Lydia Mendoza, Lorenzo Martinez, and other local musicians while welcoming internationally-know acts such as Louis Armstrong  and Nat King Cole , all of whom contributed to the bustling musical landscape of the city. 
-
-This rich cultural and musical history, however, remains largely unknown and understudied, with limited documentation and resources that are easily accessible to the public. Additionally, much of the existing documentation has been performed under the auspices of criminal justice studies , focusing on the area’s history with gang networks, violence, and crime. El Ritmo del Westside aims to explore San Antonio’s historic Westside, through a different lens, offering users a look back in time to explore the unique musical landscape and exceptional musical talent that was born there.
-
-Live project: https://valderete.github.io/El-Ritmo-del-Westside/
