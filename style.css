@@ -1,0 +1,234 @@
+body {
+    margin: 0px;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align:center;
+    font-size: 120%;
+    }
+
+i {
+  text-align:right;
+  font-size: 100%; 
+}
+
+
+h1 {
+  text-align:center;
+  font-size: 300%;
+  }
+
+h2 {
+  text-align:center;
+  padding-top: 0%;
+  }
+  
+
+h6 {
+  text-align:center;
+  font-size: 75%;
+  line-height: 2px; 
+  }
+ 
+.tooltip {
+  max-width: 25%; 
+  background-color: rgb(255, 255, 255);
+  border-color: black;
+  padding: 5px;
+  z-index: 30; /* to indicate layer placement */
+}
+
+div{
+  padding: 0px;
+}
+
+#main_map { 
+  width: 100%;
+  height: 1000px;
+  }
+
+  .wrapper {
+      display: grid;
+      grid-gap: px; /* eventually remove to get rid of grid borders */
+      grid-template-columns:  [col1-start] auto [col2-start] auto  [col3-start] auto  [col4-start] auto  [col4-end];
+      grid-template-rows: [row0-start] auto [row1-start] auto [row2-start] auto [row3-start] auto [row4-start] auto [row5-start] auto [row6-start] auto [row7-start] auto [row8-start] auto [row9-start] auto [row10-start] auto [row10-end];
+      background-color: rgb(0, 0, 0);
+      color: rgb(252, 252, 252);
+      padding: px; /* eventually remove to get rid of grid borders */
+    }
+  
+    .box {
+      background-color: rgb(100,119,185);
+      color: rgb(240, 231, 196);
+      border-radius: 0px;
+      padding: 10px;
+      z-index:10; /* to indicate layer placement */
+    }
+  
+    .a {
+      background-color: rgb(255, 255, 255);
+      grid-column: col1-start / col4-end;
+      grid-row: row0-start ;
+      padding-top: 7%;
+      padding-bottom: 8%;
+      padding-right: 25%;
+      padding-left: 25%;
+      color: black;
+      text-align:justify;
+      line-height: 20px;
+    }
+    .ab {
+      background-color: rgb(255,105,93);
+      grid-column: col1-start / col4-end;
+      grid-row: row1-start ;
+      text-align:center;
+      color: rgb(241,237,218);
+      padding-top: 5%;
+      padding-bottom: 5%;
+    }
+    .ac {
+      background-color: rgb(255, 255, 255);
+      grid-column: col1-start / col4-end;
+      grid-row: row2-start ;
+      text-align:center;
+      color: black;
+      padding-top: 1%;
+      padding-bottom: 0%;
+      z-index:0; /* to indicate layer placement */
+    }
+    .bL {
+      background-color: transparent;
+      grid-column: col1-start / col3-start;
+      grid-row: row3-start ;
+      line-height: 25px;
+      text-align:left;
+      color: black;
+      padding-top: 20%;
+      padding-left: 7%;
+      max-width: 29%;
+      z-index: 20; /* to indicate layer placement */
+    }
+    .b {
+      background-color: rgb(255, 255, 255);
+      grid-column: col1-start / col4-end;
+      grid-row: row3-start ;
+      color: black;
+      line-height: 30px;
+      padding-bottom: 4%;
+      z-index: 1;
+    }
+    .bR {
+      background-color:transparent; /* bc it was blocking the chart */
+      grid-column: col4-start / col4-end;
+      grid-row: row3-start ;
+      line-height: 20px;
+      text-align:right;
+      color: black;
+      padding-top: 53%;
+      padding-left: 22%;
+      padding-right: 15%;
+      z-index: 20; /* to indicate layer placement */
+    }
+    .cTop {
+      background-color: rgb(255,105,93);
+      grid-column: col1-start / col4-end;
+      grid-row: row4-start ;
+      color: white;
+      text-align: justify;
+      max-height: 2%;
+      padding-right: 30%;
+      padding-left: 30%;
+      padding-top: 3%;
+      z-index: 20; /* to indicate layer placement */
+    }
+    .c {
+      background-color: rgb(255,105,93);
+      grid-column: col1-start / col3-start;
+      grid-row: row4-start ;
+      color: white;
+      padding-top: 25%;
+      padding-bottom: 5%;
+    }
+    .d {
+      background-color: rgb(255,105,93);
+      grid-column: col3-start / col4-end;
+      grid-row: row4-start ;
+      color: white;
+      padding-top: 28%;
+      padding-bottom: 5%;
+    }
+
+    .e {
+      background-color: rgb(255, 255, 255);
+      grid-column: col1-start / col4-end;
+      color: black;
+      grid-row: row5-start ;
+      text-align: left;
+      padding-left: 22%;
+      padding-right: 22%
+    }
+ /* REMOVED box f */
+  .g {
+      background-color: rgb(255, 255, 255);
+      grid-column: col1-start / col4-end;
+      grid-row: row6-start ;
+      color: black;
+      padding-top: 1.5%;
+      padding-right: 5%;
+      padding-left: 5%;
+      padding-bottom: 5%;
+    }
+    .h {
+      background-color: rgb(255,105,93);
+      grid-column: col1-start / col3-start;
+      grid-row: row7-start ;
+      color: rgb(241,237,218);
+      padding-top: 5%;
+      padding-right: 3%;
+      padding-left: 3%;
+      padding-bottom: 5%;
+    }
+
+    .i {
+      background-color: rgb(255,105,93);
+      grid-column: col3-start / col4-end;
+      grid-row: row7-start ;
+      padding-top: 13%;
+      padding-right: 5%;
+      padding-left: 5%;
+      padding-bottom: 1.5%;
+      text-align: left;
+      color: rgb(241,237,218);
+    }
+
+    
+
+    .j {
+      background-color: rgb(255, 255, 255);
+      grid-column: col1-start / col4-end;
+      grid-row: row8-start ;
+      color: black;
+      text-align: left;
+      padding-left: 22%;
+      padding-right: 22%
+    }
+
+    .k {
+      background-color: rgb(241,237,218);
+      grid-column: col1-start / col4-end;
+      grid-row: row9-start ;
+      color: black;
+      padding-top: 0%;
+      padding-right: 7%;
+      padding-left: 7%;
+      padding-bottom: 3%;
+    }
+
+    .l {
+      background-color: rgb(255, 255, 255);
+      grid-column: col1-start / col4-end;
+      grid-row: row10-start ;
+      color: black;
+      padding-top: 0%;
+      padding-right: 7%;
+      padding-left: 7%;
+      padding-bottom: 1%;
+    }
