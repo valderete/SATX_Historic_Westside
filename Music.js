@@ -32,8 +32,8 @@ colorScale = d3.scaleOrdinal()
 // append SVG for Timeline viz to body of page
 const Music_viz = d3.select("#Music_viz")
     .append("svg")
-    .attr("width", width*2.25)
-    .attr("height", height*0.6)
+    .attr("width", width*1.2)
+    .attr("height", height*1.15)
     // .attr("viewBox",[50,-10,width,height])
 
 // create a tooltip
@@ -62,34 +62,34 @@ const Music_tooltip = d3.select("#Music_tooltip")
 
 // DRAW TIMELINE
 Music_viz.append("g")
-    .attr("transform",`translate(${width*0.2}, ${height*0.23})`)
+    .attr("transform",`translate(${width*0.2}, ${height*0.5})`)
     .selectAll("timeline")
     .data(data)
     .join("circle")
     .attr("id","circle")
-    .attr("cy",d => yScale(d.Y))
-    .attr("cx", d => xScale(d.X)*3)
-    .attr("r", 95)
-    .attr("stroke", "#3c7bcc")
+    .attr("cy",d => yScale(d.Y)*3)
+    .attr("cx", d => xScale(d.X)*1.2)
+    .attr("r",85)
+    .attr("stroke", "black")
     .attr("stroke-width",2)
-    .style("fill", "#39b079")
+    .style("fill", "#afbd32")
 
 // ADD INTERACTIVITY
 .on("mouseover", function (event,d){
   d3.select(this).attr("stroke-width", 5)
     Music_viz.transition()
     .duration(200)
-})
+    })
 .on("mouseout",function (event,d){
     d3.select(this).attr("stroke-width",2)
-})
+    })
 
-// Why isn't this working???
-.on("click",function (event,d){
-    d3.select(this).attr("opacity",0.8)
-})
+// Why isn't this working?!?!?!
+.on("mouseup",function (event,d){
+    d3.select(this).attr("opacity",0.5)
+    })
 
-.on("click", (event, d) => {    
+.on("click", (event, d) => {
     d3.select("#Music_tooltip")
     .data(data)
         .attr('class', 'music_tooltip')
@@ -97,7 +97,7 @@ Music_viz.append("g")
         '<b><p style="font-size: 25px; line-height: 40px;">' + d.Title + '</b> </p>' 
         + '<p style="font-size: 18px; line-height: 30px; padding-left:25%; padding-right: 25%; text-align: center">' + d.Artist + '</p> ' 
         + '<p style="font-size: 22px; line-height: 30px; padding-left:25%; padding-right: 25%; text-align: left">' + d.Description + '</p> ' 
-        + '<p style="color: black; font-size: 18px; line-height: 30px;"> <a href= '+ d.Source +'> Source </p> '
+        + '<p style="color: white; font-size: 18px; line-height: 30px;"> <a href= '+ d.Source +'> Source </p> '
         )
         .append("div")
         
@@ -110,20 +110,17 @@ Music_viz.append("g")
         
 // ADD TITLES
 Titles = Music_viz.append("g")
-    .attr("transform",`translate(${width*0.2}, ${height*0.23})`)    
+    .attr("transform",`translate(${width*0.2}, ${height*0.5})`)    
     .selectAll("text")
     .data(data)
     .enter()
     .append("text")
         .text(d => d.Title)
-        .attr('y', d => yScale(d.Y)*1.2)//positions text towards the left of the center of the circle
-        .attr('x', d => xScale(d.X)*3) // function(d) { return yScale(d.Y_position); })
-        .attr("fill", "white")
+        .attr('y', d => yScale(d.Y)*3)//positions text towards the left of the center of the circle
+        .attr('x', d => xScale(d.X)*1.2) // function(d) { return yScale(d.Y_position); })
+        .attr("fill", "black")
         .style("text-anchor", "middle")
-        .attr("font-size", "18")
-
-
-
+        .attr("font-size", "14")
 
 
 })

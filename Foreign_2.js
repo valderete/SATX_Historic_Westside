@@ -22,20 +22,23 @@ const Foreign_Chart2 = d3.select("#Foreign_Chart2")
   .attr("transform",`translate(${margin.left-50},${margin.top})`)
 
 
+// Format numbers for tooltip
+formater =  d3.format(',d')
+
 // create a tooltip
 const Foreign_tooltip2 = d3.select("#Foreign_tooltip2")
     .append("div")
     .style("position", "absolute")
     .style("visibility", "hidden")
-    .style("background-color", "#f3ecda")
-    .style("border", "solid")
-    .style("border-color", "black")
-    .style("border-width", "3px")
-    .style("border-radius", "5px")
-    .style("padding-left", "5px")
-    .style("padding-right", "5px")
-    .style("padding-top", "0px")
-    .style("padding-bottom", "0px")
+    .style("background-color", "rgba(0, 0, 0, 0.8)")
+    //.style("border", "solid")
+    //.style("border-color", "black")
+    //.style("border-width", "3px")
+    .style("border-radius", "3px")
+    .style("padding", "6px")
+    .style("box-shadow", "-3px 3px 15px #888")
+    .style("font-size", "12px")
+
 
 
 // + DRAW AXES
@@ -83,7 +86,7 @@ Foreign_Chart2.selectAll("rect")
               .style("visibility","visible")
   
           d3.select(this)
-          Foreign_tooltip2.html("<span style='color:black;'><p> Count: " +d.Count+ "</p></span>" )                            
+          Foreign_tooltip2.html("<span style='color:white;'><p> Count: " + formater(d.Count) + "</p></span>" )                            
               .style("left",(event.pageX)+20+"px")
               .style("top",(event.pageY)-50+"px")
               

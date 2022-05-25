@@ -3,6 +3,7 @@ d3.csv('./data/Bexar_1960_Foreign_Born.csv', d3.autoType)
 .then(data => {
   console.log("Foreign data loaded", data)
 
+  
 xScale2 = d3.scaleLinear()
   .domain([0, 120000])
   .range([0, width*0.8])
@@ -21,21 +22,22 @@ const Foreign_Chart = d3.select("#Foreign_Chart")
   .attr("height", height*0.65)
   .attr("transform",`translate(${margin.left-50},${margin.top})`)
 
+// Format numbers for tooltip
+formater =  d3.format(',d')
 
 // create a tooltip
 const Foreign_tooltip = d3.select("#Foreign_tooltip")
     .append("div")
     .style("position", "absolute")
     .style("visibility", "hidden")
-    .style("background-color", "#f3ecda")
-    .style("border", "solid")
-    .style("border-color", "black")
-    .style("border-width", "3px")
-    .style("border-radius", "5px")
-    .style("padding-left", "5px")
-    .style("padding-right", "5px")
-    .style("padding-top", "0px")
-    .style("padding-bottom", "0px")
+    .style("background-color", "rgba(0, 0, 0, 0.8)")
+    //.style("border", "solid")
+    //.style("border-color", "black")
+    //.style("border-width", "3px")
+    .style("border-radius", "3px")
+    .style("padding", "6px")
+    .style("box-shadow", "-3px 3px 15px #888")
+    .style("font-size", "12px")
 
 
 // + DRAW AXES
@@ -83,7 +85,7 @@ Foreign_Chart.selectAll("rect")
               .style("visibility","visible")
   
           d3.select(this)
-          Foreign_tooltip.html("<span style='color:black;'><p> Count: " +d.Count+ "</p></span>" )                            
+          Foreign_tooltip.html("<span style='color:white;'><p> Count: " +formater(d.Count) + "</p></span>" )                            
               .style("left",(event.pageX)+20+"px")
               .style("top",(event.pageY)-50+"px")
               

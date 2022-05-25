@@ -17,9 +17,10 @@ const Military = L.map('map',
  L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
         //maxZoom: 20,
-        id: 'mapbox/dark-v10',
+        id: 'mapbox/dark-v8',
         tileSize: 512,
         zoomOffset: -1,
+        opacity: 0.75,
         accessToken: 'sk.eyJ1IjoidmFsZGVyZXRlMTEiLCJhIjoiY2wxbWZsZXh2MDBvNDNscW9wYWI5NnpnaSJ9.hx1dqc-JR5V8NJM1qRbBjQ'
         })
     .addTo(Military);
@@ -38,7 +39,7 @@ KellyAFB = L.circle([29.383333, -98.580833], {
     color: '#cae165',
     fillColor: '#cae165',
     fillOpacity: 0.3,
-    radius:900,
+    radius:1500,
     className: 'military_base'
         })
     .bindTooltip('Kelly Air Force Base', {
@@ -50,7 +51,7 @@ LacklandAFB = L.circle([29.388, -98.6207], {
     color: '#cae165',
     fillColor: '#cae165',
     fillOpacity: 0.3,
-    radius:900
+    radius:1500
     })
     .bindTooltip('Lackland Air Force Base', {
         permanent: true,
@@ -62,7 +63,7 @@ RandolphAFB = L.circle([29.529444, -98.278889], {
     color: '#cae165',
     fillColor: '#cae165',
     fillOpacity: 0.3,
-    radius:900
+    radius:1500
     })
     .bindTooltip('Randolph Air Force Base', {
         permanent: true,
@@ -74,7 +75,7 @@ FortSam = L.circle([29.457386, -98.43956], {
     color: '#cae165',
     fillColor: '#cae165',
     fillOpacity: 0.3,
-    radius:900
+    radius:1500
     })
     .bindTooltip('Fort Sam Houston', {
         permanent: true,
@@ -86,7 +87,7 @@ CampBullis = L.circle([29.6259934,-98.6084726], {
     color: '#cae165',
     fillColor: '#cae165',
     fillOpacity: 0.3,
-    radius:900
+    radius:1500
     })
     .bindTooltip('Camp Bullis', {
         permanent: true,

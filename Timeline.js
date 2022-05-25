@@ -8,7 +8,7 @@ timelineScale = d3.scaleLinear()
 
 yScale = d3.scaleLinear()
     .domain([0, d3.max(data, d => d.Date)])
-    .range([height*0.2, 0])
+    .range([height*0.5,0])
 
 xAxis = d3.axisBottom(timelineScale)
 yAxis = d3.axisLeft(yScale)
@@ -32,7 +32,7 @@ colorScale = d3.scaleOrdinal()
 const Timeline = d3.select("#Timeline")
     .append("svg")
     .attr("width", width*2.25)
-    .attr("height", height*0.7)
+    .attr("height", height*1.2)
    // .attr("viewBox",[50,-10,width,height])
 
 // create a tooltip
@@ -49,25 +49,26 @@ const timeline_tooltip = d3.select("#Timeline")
 // DRAW AXES
 Timeline.append("g")
     .attr("class", "xAxis")
-    .attr("transform", `translate(${width*0.2}, ${height*0.6})`) // move to the bottom
+    .attr("transform", `translate(${width*0.2}, ${height*1.1})`) // move to the bottom
     .call(xAxis
         .ticks(2)
-        .tickSize(15)
+        .tickSize(10)
         .tickFormat(d3.format("d"))
         .tickValues(["1950", "1970"]) // only show first and last ticks
         )
     .attr("font-size", "30")
+    .attr("stroke-width", 3)
 
 // DRAW LINES
 Timeline.append("g")
-    .attr("transform",`translate(${width*0.22}, ${height*0.43})`)
+    .attr("transform",`translate(${width*0.22}, ${height*0.675})`)
     .selectAll("line")
     .data(data)
     .join("line")
     .attr("id","line")
     .attr("x1", d => timelineScale(d.Date)+30)
     .attr("x2", d => timelineScale(d.Date)+30)
-    .attr("y2",d => yScale(d.Y_position)*0.15)
+    .attr("y2",d => yScale(d.Y_position)*0.55)
     .attr("y1",yScale(300))
     .attr("stroke", "white")
     .attr("stroke-width", 3)
@@ -75,34 +76,34 @@ Timeline.append("g")
 
 // DRAW TIMELINE
 Timeline.append("g")
-    .attr("transform",`translate(${width*0.22}, ${height*0.43})`)
+    .attr("transform",`translate(${width*0.22}, ${height*0.82})`)
     .selectAll("timeline")
     .data(data)
     .join("circle")
     .attr("id","timeline")
     .attr("cy",d => yScale(d.Y_position))
     .attr("cx", d => timelineScale(d.Date)+30)
-    .attr("r", 40)
+    .attr("r", 50)
     .attr("stroke-width",3.5)
     .attr("stroke", "white")
     .style("fill", "#afbd32")
 
     // INTERACTIVITY FOR TOOLTIP
     .on("mouseover", function (event,d){
-    d3.select(this).attr("stroke-width", 1)
+    d3.select(this).attr("stroke-width", 5).attr("r", 65)
         timeline_tooltip.transition()
             .duration(200)
             .style("visibility","visible")
 
         d3.select(this)
-        timeline_tooltip.html("<span style='color:black;'><h3>"+d.Year+"</h3><span style='color:black;'><h2>"+d.Event+"</h2><img src="+d.Media+" style='max-width:65%;height:auto; ></ahref></span><span style='color:black'><p>"+d.Description+"</p></span>" )                            
+        timeline_tooltip.html("<span style='color:black;'><h4>"+d.Year+"</h4><span style='color:black;'><h5>"+d.Event+"</h5><img src="+d.Media+" style='max-width:65%;height:auto; ></ahref></span><span style='color:black'><p>"+d.Description+"</p></span>" )                            
             .style("left",(event.pageX)+10+"px")
             .style("top",(event.pageY)-400+"px")
             
     })
 
     .on("mouseout",function (event,d){
-        d3.select(this).attr("stroke-width",1)
+        d3.select(this).attr("stroke-width",1).attr("r", 40)
         timeline_tooltip.transition().style("visibility","hidden") 
     }  )     
 

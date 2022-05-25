@@ -10,7 +10,7 @@ const legendData = ["White", "Black", "Other", "American Indian"]
 //LEGEND SCALE
 const legendScale= d3.scaleOrdinal()
   .domain(legendData)
-  .range(['#f5835d','#b7ce51','#4daf4a', '#723ee2'])
+  .range(['#677033','#96A44B','#B7C761', '#C8D96F'])
 
 legend.append("g")
   .selectAll("circle")
@@ -72,22 +72,22 @@ const xSubgroup = d3.scaleBand()
 xAxis = d3.axisBottom(xScale)
 yAxis = d3.axisLeft(yScale)
 
+// Format numbers for tooltip
+formater =  d3.format(',d')
 
 // create a tooltip
 const Race_tooltip = d3.select("#Race_2_tooltip")
     .append("div")
     .style("position", "absolute")
     .style("visibility", "hidden")
-    .style("background-color", "#49b8c5")
+    .style("background-color", "rgba(0, 0, 0, 0.8)")
     .style("border", "solid")
-    .style("border-color", "black")
-    .style("border-width", "3px")
-    .style("border-radius", "5px")
-    .style("padding-left", "5px")
-    .style("padding-right", "5px")
-    .style("padding-top", "0px")
-    .style("padding-bottom", "0px")
-
+    //.style("border-color", "black")
+    //.style("border-width", "3px")
+    .style("border-radius", "3px")
+    .style("padding", "6px")
+    .style("box-shadow", "-3px 3px 15px #888")
+    .style("font-size", "12px")
 
 // DRAW AXES
 Race_2.append("g")
@@ -111,7 +111,7 @@ Race_2.append("g")
 // color palette = one color per subgroup
 color = d3.scaleOrdinal()
     .domain(subgroups)
-    .range(['#f5835d','#b7ce51','#4daf4a', '#ffde59'])
+    .range(['#677033','#96A44B','#B7C761', '#C8D96F'])
 
 // DRAW BARS
 Race_2.append("g")
@@ -128,19 +128,19 @@ Race_2.append("g")
       .attr("width", xSubgroup.bandwidth())
       .attr("height", d => height - yScale(d.value))
       .attr("fill", d => color(d.key))
-      .attr("stroke", "#49b8c5")
+      .attr("stroke", "#ff695d")
       .attr("stroke-width", 0) //;
 
     
      // INTERACTIVITY FOR TOOLTIP
      .on("mouseover", function (event,d){
-        d3.select(this).attr("stroke-width", 4)
+        d3.select(this).attr("stroke-width", 2)
             Race_tooltip.transition()
                 .duration(200)
                 .style("visibility","visible")
     
             d3.select(this)
-            Race_tooltip.html("<span style='color:black;'><p> Count: " + d.value + "</p></span>" )                            
+            Race_tooltip.html("<span style='color:white;'><p> Count: " + formater(d.value) + "</p></span>" )                            
                 .style("left",(event.pageX)+20+"px")
                 .style("top",(event.pageY)-50+"px")
                 
